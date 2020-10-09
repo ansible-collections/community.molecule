@@ -1,22 +1,18 @@
-# collection_template
-You can build a new repository for an Ansible Collection using this template by following [Creating a repository from a template](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template). This README.md contains recommended headings for your collection README.md, with comments describing what each section should contain. Once you have created your collection repository, delete this paragraph and the title above it from your README.md.
+# Molecule Collection
 
-# Foo Collection
-<!-- Add CI and code coverage badges here. Samples included below. -->
-[![CI](https://github.com/ansible-collections/REPONAMEHERE/workflows/CI/badge.svg?event=push)](https://github.com/ansible-collections/REPONAMEHERE/actions) [![Codecov](https://img.shields.io/codecov/c/github/ansible-collections/REPONAMEHERE)](https://codecov.io/gh/ansible-collections/REPONAMEHERE)
+[![CI](https://github.com/ansible-collections/community.molecule/workflows/CI/badge.svg?event=push)](https://github.com/ansible-collections/community.molecule/actions) [![Codecov](https://img.shields.io/codecov/c/github/ansible-collections/community.molecule)](https://codecov.io/gh/ansible-collections/community.molecule)
 
-<!-- Describe the collection and why a user would want to use it. What does the collection do? -->
+This collection contains few Ansible filters that can be used by Molecule
+users.
 
 ## Tested with Ansible
 
-<!-- List the versions of Ansible the collection has been tested with. Must match what is in galaxy.yml. -->
+- 2.9
+- 2.10
 
 ## External requirements
 
-<!-- List any external resources the collection depends on, for example minimum versions of an OS, libraries, or utilities. Do not list other Ansible collections here. -->
-
-### Supported connections
-<!-- Optional. If your collection supports only specific connection types (such as HTTPAPI, netconf, or others), list them here. -->
+Filters do require molecule python package and require python >= 3.6.
 
 ## Included content
 
@@ -30,12 +26,12 @@ See [Ansible Using collections](https://docs.ansible.com/ansible/latest/user_gui
 
 ## Contributing to this collection
 
-<!--Describe how the community can contribute to your collection. At a minimum, include how and where users can create issues to report problems or request features for this collection.  List contribution requirements, including preferred workflows and necessary testing, so you can benefit from community PRs. If you are following general Ansible contributor guidelines, you can link to - [Ansible Community Guide](https://docs.ansible.com/ansible/latest/community/index.html). -->
-
+Feel free to raise a PR or engage with other molecule users on freenode irc
+channel `#ansible-molecule`.
 
 ## Release notes
 
-See the [changelog](https://github.com/ansible-collections/REPONAMEHERE/tree/main/CHANGELOG.rst).
+See the [changelog](https://github.com/ansible-collections/community.molecule/tree/main/CHANGELOG.rst).
 
 ## Roadmap
 
@@ -55,8 +51,4 @@ See the [changelog](https://github.com/ansible-collections/REPONAMEHERE/tree/mai
 
 ## Licensing
 
-<!-- Include the appropriate license information here and a pointer to the full licensing details. If the collection contains modules migrated from the ansible/ansible repo, you must use the same license that existed in the ansible/ansible repo. See the GNU license example below. -->
-
-GNU General Public License v3.0 or later.
-
-See [LICENSE](https://www.gnu.org/licenses/gpl-3.0.txt) to see the full text.
+[MIT](https://github.com/ansible-collections/community.molecule/blob/main/LICENSE).

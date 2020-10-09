@@ -1,0 +1,17 @@
+- hosts: localhost
+  gather_facts: false
+  collections:
+    - community.molecule
+  tasks:
+
+    - name: Check if community.molecule.header filter can be used
+      debug:
+        msg: "{{ '' | community.molecule.header }}"
+
+    - name: Check if community.molecule.to_yaml filter can be used
+      debug:
+        msg: "{{ '' | community.molecule.to_yaml }}"
+
+    - name: Check if community.molecule.from_yaml filter can be used
+      debug:
+        msg: "{{ '' | community.molecule.from_yaml }}"

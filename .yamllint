@@ -1,0 +1,17 @@
+extends: default
+ignore: |
+  .tox
+
+rules:
+  braces:
+    max-spaces-inside: 1
+    level: error
+  brackets:
+    max-spaces-inside: 1
+    level: error
+  document-start: disable
+  line-length: disable
+  truthy:
+    allowed-values: ['true', 'false', 'on']
+  # https://github.com/adrienverge/yamllint/issues/141
+  comments-indentation: disable
