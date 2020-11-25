@@ -8,6 +8,15 @@
       debug:
         msg: "{{ '' | community.molecule.header }}"
 
+    - name: Test community.molecule.header filter result
+      set_fact:
+        with_header: "{{ '# This is test content\n' | community.molecule.header }}"
+
+    - name: Assert community.molecule.header filter result
+      assert:
+        that:
+          - "'# Molecule managed\n\n# This is test content\n' == with_header"
+
     - name: Check if community.molecule.to_yaml filter can be used
       debug:
         msg: "{{ '' | community.molecule.to_yaml }}"

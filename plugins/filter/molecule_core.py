@@ -37,8 +37,8 @@ def to_yaml(data):
 
 
 def header(content):
-    """Return heaader to be added."""
-    return "# Molecule managed\n\n"
+    """Prepend molecule header."""
+    return util.molecule_prepender(content)
 
 
 def get_docker_networks(data, state, labels=None):
