@@ -4,7 +4,13 @@ from __future__ import absolute_import, division, print_function
 import os
 
 # TODO(ssbarnea): Must remove the dependency on molecule python module here
-from molecule import config, interpolation, util
+try:
+    from molecule import config, interpolation, util
+except ImportError as imp_exc:
+    MOLECULE_IMPORT_ERROR = imp_exc
+
+from ansible.errors import AnsibleError
+from ansible.module_utils.six import raise_from
 
 __metaclass__ = type
 
@@ -79,6 +85,12 @@ class FilterModule(object):
 
     def filters(self):
         """Return implemented filters."""
+        if MOLECULE_IMPORT_ERROR:
+            raise_from(
+                AnsibleError('molecule python package must be installed to use this plugin'),
+                MOLECULE_IMPORT_ERROR
+            )
+
         return {
             "from_yaml": from_yaml,
             "to_yaml": to_yaml,
