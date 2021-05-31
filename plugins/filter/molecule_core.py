@@ -87,7 +87,8 @@ class FilterModule(object):
         """Return implemented filters."""
         if MOLECULE_IMPORT_ERROR:
             raise_from(
-                AnsibleError('molecule python package must be installed to use this plugin'),
+                AnsibleError('molecule python package must be '
+                             'installed to use this plugin'),
                 MOLECULE_IMPORT_ERROR
             )
 
