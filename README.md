@@ -26,8 +26,8 @@ See [Ansible Using collections](https://docs.ansible.com/ansible/latest/user_gui
 
 ## Contributing to this collection
 
-Feel free to raise a PR or engage with other molecule users on freenode irc
-channel `#ansible-molecule`.
+Feel free to raise a PR or engage with other molecule users on the `#ansible-molecule`
+[libera.chat](https://libera.chat/) IRC channel.
 
 ## Release notes
 
