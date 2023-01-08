@@ -7,7 +7,8 @@ readme: README.md
 authors:
   - Sorin Sbarnea (github/ssbarnea)
 description: Ansible Molecule collection contains molecule specific plugins.
-license: MIT
+license:
+  - MIT
 tags:
   - molecule
   - testing
