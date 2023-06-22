@@ -5,7 +5,7 @@
 # If you need help please ask in #ansible-community on Libera.Chat IRC
 
 name: CI
-on:
+"on":
   # Run CI against all pushes (direct commits) and Pull Requests
   - push
   - pull_request

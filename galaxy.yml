@@ -2,7 +2,7 @@
 
 namespace: community
 name: molecule
-version: 0.1.0
+version: 1.0.0
 readme: README.md
 authors:
   - Sorin Sbarnea (github/ssbarnea)
@@ -10,6 +10,7 @@ description: Ansible Molecule collection contains molecule specific plugins.
 license:
   - MIT
 tags:
+  - application
   - molecule
   - testing
 repository: https://github.com/ansible-collections/community.molecule
