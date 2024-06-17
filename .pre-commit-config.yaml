@@ -1,15 +1,15 @@
 repos:
-  - repo: https://github.com/pre-commit/mirrors-isort
-    rev: v5.8.0
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.13.2
     hooks:
       - id: isort
-  - repo: https://github.com/python/black.git
-    rev: 21.5b2
+  - repo: https://github.com/psf/black
+    rev: 24.4.2
     hooks:
       - id: black
         language_version: python3
   - repo: https://github.com/pre-commit/pre-commit-hooks.git
-    rev: v4.0.1
+    rev: v4.6.0
     hooks:
       - id: end-of-file-fixer
       - id: trailing-whitespace
@@ -20,7 +20,7 @@ repos:
       - id: debug-statements
         language_version: python3
   - repo: https://github.com/pycqa/flake8
-    rev: 3.9.2
+    rev: 7.0.0
     hooks:
       - id: flake8
         additional_dependencies:
@@ -30,14 +30,14 @@ repos:
           - flake8-docstrings>=1.5.0
         language_version: python3
   - repo: https://github.com/adrienverge/yamllint.git
-    rev: v1.26.1
+    rev: v1.35.1
     hooks:
       - id: yamllint
         files: \.(yaml|yml)$
         types: [file, yaml]
         entry: yamllint --strict
   - repo: https://github.com/ansible/ansible-lint.git
-    rev: v5.0.11
+    rev: v24.6.0
     hooks:
       - id: ansible-lint
         always_run: true

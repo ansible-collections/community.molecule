@@ -23,7 +23,7 @@ jobs:
           - tox_env: lint
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Find python version
         id: py_ver
         shell: python
@@ -33,11 +33,11 @@ jobs:
           print('::set-output name=version::{0}.{1}'.format(v[0],v[1:]))
       # Even our lint and other envs need access to tox
       - name: Install a default Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         if: ${{ ! contains(matrix.tox_env, 'py') }}
       # Be sure to install the version of python needed by a specific test, if necessary
       - name: Set up Python version
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         if: ${{ contains(matrix.tox_env, 'py') }}
         with:
           python-version: ${{ steps.py_ver.outputs.version }}
