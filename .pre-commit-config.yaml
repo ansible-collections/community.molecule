@@ -37,7 +37,7 @@ repos:
         types: [file, yaml]
         entry: yamllint --strict
   - repo: https://github.com/ansible/ansible-lint.git
-    rev: v24.6.0
+    rev: v24.6.1
     hooks:
       - id: ansible-lint
         always_run: true
