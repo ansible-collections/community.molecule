@@ -1,15 +1,19 @@
+ci:
+  skip:
+    # https://github.com/pre-commit-ci/issues/issues/55
+    - ansible-lint
 repos:
   - repo: https://github.com/PyCQA/isort
-    rev: 5.13.2
+    rev: 6.0.0
     hooks:
       - id: isort
   - repo: https://github.com/psf/black
-    rev: 24.4.2
+    rev: 24.10.0
     hooks:
       - id: black
         language_version: python3
   - repo: https://github.com/pre-commit/pre-commit-hooks.git
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: end-of-file-fixer
       - id: trailing-whitespace
@@ -20,7 +24,7 @@ repos:
       - id: debug-statements
         language_version: python3
   - repo: https://github.com/pycqa/flake8
-    rev: 7.1.0
+    rev: 7.1.1
     hooks:
       - id: flake8
         additional_dependencies:
@@ -37,7 +41,7 @@ repos:
         types: [file, yaml]
         entry: yamllint --strict
   - repo: https://github.com/ansible/ansible-lint.git
-    rev: v24.6.1
+    rev: v25.1.1
     hooks:
       - id: ansible-lint
         always_run: true
@@ -45,11 +49,4 @@ repos:
         # do not add file filters here as ansible-lint does not give reliable
         # results when called with individual files.
         # https://github.com/ansible/ansible-lint/issues/611
-        verbose: true
-        entry: >
-          ansible-lint --force-color -v
-        additional_dependencies:
-          # needed because our ansible filter imports it
-          - ansible-core
-          - molecule
-          - yamllint
+        entry: ansible-lint --force-color -v
