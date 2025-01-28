@@ -4,18 +4,14 @@ from __future__ import absolute_import, division, print_function
 
 import os
 
-# TODO(ssbarnea): Must remove the dependency on molecule python module here
-try:
-    from molecule import config, interpolation, util
+__metaclass__ = type  # pylint: disable=invalid-name
+# pylint: skip-file
 
-    MOLECULE_IMPORT_ERROR = None
-except ImportError as imp_exc:
-    MOLECULE_IMPORT_ERROR = imp_exc
-
-from ansible.errors import AnsibleError
-from ansible.module_utils.six import raise_from
-
-__metaclass__ = type
+DOCUMENTATION = """
+name: from_yaml
+description:
+    - This callback just adds total play duration to the play stats.
+"""
 
 
 def from_yaml(data):
@@ -28,25 +24,31 @@ def from_yaml(data):
 
     :return: dict
     """
+    from molecule import config, interpolation, util  # noqa: F401
+
     molecule_env_file = os.environ.get("MOLECULE_ENV_FILE", None)
 
     env = os.environ.copy()
     if molecule_env_file:
-        env = config.set_env_from_file(env, molecule_env_file)
+        env = config.set_env_from_file(env, molecule_env_file)  # pylint: disable=undefined-variable
 
-    i = interpolation.Interpolator(interpolation.TemplateWithDefaults, env)
+    i = interpolation.Interpolator(interpolation.TemplateWithDefaults, env)  # pylint: disable=undefined-variable
     interpolated_data = i.interpolate(data)
 
-    return util.safe_load(interpolated_data)
+    return util.safe_load(interpolated_data)  # pylint: disable=undefined-variable
 
 
 def to_yaml(data):
     """Format data as YAML."""
-    return str(util.safe_dump(data))
+    from molecule import util  # noqa: F401
+
+    return util.safe_dump(data)  # pylint: disable=undefined-variable
 
 
 def header(content):
     """Prepend molecule header."""
+    from molecule import util  # noqa: F401
+
     return util.molecule_prepender(content)
 
 
@@ -85,18 +87,11 @@ def get_docker_networks(data, state, labels=None):
     return network_list
 
 
-class FilterModule(object):
+class FilterModule:
     """Core Molecule filter plugins."""
 
     def filters(self):
         """Return implemented filters."""
-        if MOLECULE_IMPORT_ERROR:
-            raise_from(
-                AnsibleError(
-                    "molecule python package must be installed to use this plugin"
-                ),
-                MOLECULE_IMPORT_ERROR,
-            )
 
         return {
             "from_yaml": from_yaml,

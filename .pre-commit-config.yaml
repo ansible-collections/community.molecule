@@ -41,13 +41,23 @@ repos:
         files: \.(yaml|yml)$
         types: [file, yaml]
         entry: yamllint --strict
-  - repo: https://github.com/ansible/ansible-lint.git
-    rev: v25.5.0
+  - repo: https://github.com/pycqa/pylint
+    rev: v3.3.7
     hooks:
+      - id: pylint
+        args:
+          - --output-format=colorized
+        additional_dependencies:
+          - molecule
+  - repo: https://github.com/ansible/ansible-lint.git
+    rev: v25.6.0
+    hooks:
+
       - id: ansible-lint
         always_run: true
         pass_filenames: false
         # do not add file filters here as ansible-lint does not give reliable
         # results when called with individual files.
         # https://github.com/ansible/ansible-lint/issues/611
-        entry: ansible-lint --force-color -v
+        additional_dependencies:
+          - molecule
