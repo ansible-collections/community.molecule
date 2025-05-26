@@ -4,11 +4,11 @@ ci:
     - ansible-lint
 repos:
   - repo: https://github.com/PyCQA/isort
-    rev: 6.0.0
+    rev: 6.0.1
     hooks:
       - id: isort
   - repo: https://github.com/psf/black
-    rev: 24.10.0
+    rev: 25.1.0
     hooks:
       - id: black
         language_version: python3
@@ -24,7 +24,7 @@ repos:
       - id: debug-statements
         language_version: python3
   - repo: https://github.com/pycqa/flake8
-    rev: 7.1.1
+    rev: 7.2.0
     hooks:
       - id: flake8
         additional_dependencies:
@@ -34,14 +34,14 @@ repos:
           - flake8-docstrings>=1.5.0
         language_version: python3
   - repo: https://github.com/adrienverge/yamllint.git
-    rev: v1.35.1
+    rev: v1.37.1
     hooks:
       - id: yamllint
         files: \.(yaml|yml)$
         types: [file, yaml]
         entry: yamllint --strict
   - repo: https://github.com/ansible/ansible-lint.git
-    rev: v25.1.1
+    rev: v25.5.0
     hooks:
       - id: ansible-lint
         always_run: true
