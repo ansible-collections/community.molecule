@@ -90,13 +90,13 @@ class FilterModule(object):
 
     def filters(self):
         """Return implemented filters."""
-        if MOLECULE_IMPORT_ERROR:
-            raise_from(
-                AnsibleError(
-                    "molecule python package must be installed to use this plugin"
-                ),
-                MOLECULE_IMPORT_ERROR,
-            )
+        # if MOLECULE_IMPORT_ERROR:
+        #     raise_from(
+        #         AnsibleError(
+        #             "molecule python package must be installed to use this plugin"
+        #         ),
+        #         MOLECULE_IMPORT_ERROR,
+        #     )
 
         return {
             "from_yaml": from_yaml,
