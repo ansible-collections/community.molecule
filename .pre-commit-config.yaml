@@ -1,47 +1,48 @@
+---
 ci:
+  # format compatible with commitlint
+  autoupdate_commit_msg: "chore: pre-commit autoupdate"
+  autoupdate_schedule: monthly
+  autofix_commit_msg: "chore: auto fixes from pre-commit.com hooks"
   skip:
     # https://github.com/pre-commit-ci/issues/issues/55
     - ansible-lint
 repos:
-  - repo: https://github.com/PyCQA/isort
-    rev: 6.0.0
+  - repo: meta
     hooks:
-      - id: isort
-  - repo: https://github.com/psf/black
-    rev: 24.10.0
+      - id: check-useless-excludes
+  - repo: https://github.com/streetsidesoftware/cspell-cli
+    rev: v9.0.1
     hooks:
-      - id: black
-        language_version: python3
+      - id: cspell
+        # entry: codespell --relative
+        args: [--relative, --no-progress, --no-summary]
+        name: Spell check with cspell
   - repo: https://github.com/pre-commit/pre-commit-hooks.git
     rev: v5.0.0
     hooks:
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: debug-statements
+      - id: detect-private-key
       - id: end-of-file-fixer
       - id: trailing-whitespace
       - id: mixed-line-ending
-      - id: check-byte-order-marker
+      - id: fix-byte-order-marker
       - id: check-executables-have-shebangs
       - id: check-merge-conflict
       - id: debug-statements
         language_version: python3
-  - repo: https://github.com/pycqa/flake8
-    rev: 7.1.1
-    hooks:
-      - id: flake8
-        additional_dependencies:
-          - pydocstyle>=5.1.1
-          - flake8-absolute-import
-          - flake8-black>=0.1.1
-          - flake8-docstrings>=1.5.0
-        language_version: python3
   - repo: https://github.com/adrienverge/yamllint.git
-    rev: v1.35.1
+    rev: v1.37.1
     hooks:
       - id: yamllint
         files: \.(yaml|yml)$
         types: [file, yaml]
         entry: yamllint --strict
   - repo: https://github.com/ansible/ansible-lint.git
-    rev: v25.1.1
+    rev: v25.5.0
     hooks:
       - id: ansible-lint
         always_run: true
