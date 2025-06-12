@@ -1,0 +1,11 @@
+mypy
+Sorin
+Sbarnea
+antsibull
+ssbarnea
+commitlint
+codespell
+devel
+netcommon
+prepender
+docsite

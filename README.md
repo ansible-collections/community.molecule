@@ -24,11 +24,6 @@ Filters do require molecule python package and require python >= 3.6.
 
 See [Ansible Using collections](https://docs.ansible.com/ansible/latest/user_guide/collections_using.html) for more details.
 
-## Contributing to this collection
-
-Feel free to raise a PR or engage with other molecule users on the `#ansible-molecule`
-[libera.chat](https://web.libera.chat/?channel=#ansible-molecule) IRC channel.
-
 ## Release notes
 
 See the [changelog](https://github.com/ansible-collections/community.molecule/tree/main/CHANGELOG.rst).

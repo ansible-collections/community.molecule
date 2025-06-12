@@ -22,7 +22,7 @@ def from_yaml(data):
     """
     Interpolate the provided data and return a dict.
 
-    Currently, this is used to reinterpolate the `molecule.yml` inside an
+    Currently, this is used to re-interpolate the `molecule.yml` inside an
     Ansible playbook.  If there were any interpolation errors, they would
     have been found and raised earlier.
 
@@ -77,9 +77,11 @@ def get_docker_networks(data, state, labels=None):
                 if "name" in network:
                     name = network["name"]
                     if name not in network_names:
-                        network_list.append(
-                            {"name": name, "labels": labels, "state": state}
-                        )
+                        network_list.append({
+                            "name": name,
+                            "labels": labels,
+                            "state": state,
+                        })
     return network_list
 
 

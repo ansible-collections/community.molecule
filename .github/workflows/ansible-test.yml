@@ -2,7 +2,6 @@
 # 1. replace "community/molecule" with the correct name, ie "community/zabbix"
 # 2. If you don't have unit tests remove that section
 # 3. If your collection depends on other collections ensure they are installed, see "Install collection dependencies"
-# If you need help please ask in #ansible-community on Libera.Chat IRC
 
 name: CI
 "on":
