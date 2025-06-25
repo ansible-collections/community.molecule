@@ -133,3 +133,5 @@ dmypy.json
 
 # Other
 *.tar.gz
+collections
+galaxy_cache
