@@ -12,6 +12,12 @@ name: from_yaml
 description:
     - This callback just adds total play duration to the play stats.
 """
+try:
+    from molecule import config, interpolation, util
+
+    MOLECULE_IMPORT_ERROR = None
+except ImportError as imp_exc:
+    MOLECULE_IMPORT_ERROR = imp_exc
 
 
 def from_yaml(data):
@@ -24,7 +30,8 @@ def from_yaml(data):
 
     :return: dict
     """
-    from molecule import config, interpolation, util  # noqa: F401
+    if MOLECULE_IMPORT_ERROR:
+        return None
 
     molecule_env_file = os.environ.get("MOLECULE_ENV_FILE", None)
 
@@ -40,14 +47,16 @@ def from_yaml(data):
 
 def to_yaml(data):
     """Format data as YAML."""
-    from molecule import util  # noqa: F401
+    if MOLECULE_IMPORT_ERROR:
+        return ""
 
     return util.safe_dump(data)  # pylint: disable=undefined-variable
 
 
 def header(content):
     """Prepend molecule header."""
-    from molecule import util  # noqa: F401
+    if MOLECULE_IMPORT_ERROR:
+        return ""
 
     return util.molecule_prepender(content)
 
