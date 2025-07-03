@@ -18,6 +18,8 @@ jobs:
   #   if: github.event_name == 'pull_request'
   ansible-lint:
     uses: ansible/ansible-content-actions/.github/workflows/ansible_lint.yaml@main
+  build-import:
+    uses: ansible/ansible-content-actions/.github/workflows/build_import.yaml@main
   sanity:
     uses: ansible/ansible-content-actions/.github/workflows/sanity.yaml@main
   unit:
@@ -29,6 +31,7 @@ jobs:
     needs:
       # - changelog
       - ansible-lint
+      - build-import
       - integration
       - sanity
       - unit
