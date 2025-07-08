@@ -50,7 +50,7 @@ repos:
         additional_dependencies:
           - molecule
   - repo: https://github.com/ansible/ansible-lint.git
-    rev: v25.6.0
+    rev: v25.6.1
     hooks:
 
       - id: ansible-lint
